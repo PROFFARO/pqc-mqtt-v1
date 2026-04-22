@@ -93,9 +93,28 @@ add_executable(stress_test
 )
 target_link_libraries(stress_test PRIVATE pqc_utils Threads::Threads)
 
+# --- Certificate Size Benchmark ---
+add_executable(cert_bench
+    src/bench/cert_bench.c
+)
+target_link_libraries(cert_bench PRIVATE pqc_utils)
+
+# --- Payload Sweep Benchmark ---
+add_executable(payload_sweep_bench
+    src/bench/payload_sweep_bench.c
+)
+target_link_libraries(payload_sweep_bench PRIVATE pqc_utils)
+
+# --- QoS Comparison Benchmark ---
+add_executable(qos_bench
+    src/bench/qos_bench.c
+)
+target_link_libraries(qos_bench PRIVATE pqc_utils)
+
 # --- Install targets ---
 install(TARGETS
     pqc_publisher pqc_subscriber
     handshake_bench throughput_bench stress_test
+    cert_bench payload_sweep_bench qos_bench
     RUNTIME DESTINATION bin
 )
