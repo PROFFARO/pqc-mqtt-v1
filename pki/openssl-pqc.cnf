@@ -18,7 +18,8 @@ oqsprovider = oqsprovider_sect
 activate = 1
 
 [oqsprovider_sect]
-# The oqs-provider .so is installed into the ossl-modules dir by build-oqs-provider.sh
+# Use OPENSSL_MODULES env var to locate oqsprovider.so
+module   = $ENV::OPENSSL_MODULES/oqsprovider.so
 activate = 1
 
 # --- SSL/TLS Defaults ---

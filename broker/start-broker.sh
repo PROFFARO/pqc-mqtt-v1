@@ -38,6 +38,7 @@ if [ ! -f "${MOSQUITTO_BIN}" ]; then
 fi
 
 # Export env so Mosquitto picks up our custom OpenSSL + oqs-provider
+export LD_LIBRARY_PATH="${PQC_INSTALL_PREFIX}/lib64:${PQC_INSTALL_PREFIX}/lib:${LD_LIBRARY_PATH:-}"
 export OPENSSL_CONF="${PQC_PROJECT_ROOT}/pki/openssl-pqc.cnf"
 export OPENSSL_MODULES="${PQC_INSTALL_PREFIX}/lib64/ossl-modules"
 
