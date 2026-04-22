@@ -10,11 +10,13 @@
 #define PQC_MQTT_PROJECT_NAME  "PQC-MQTT"
 
 /* --- Broker defaults --- */
-#define PQC_BROKER_HOST        "localhost"
-#define PQC_BROKER_PORT_PQC    8883
-#define PQC_BROKER_PORT_CLASSICAL 8884
-#define PQC_BROKER_URI_PQC     "ssl://localhost:8883"
-#define PQC_BROKER_URI_CLASSICAL "ssl://localhost:8884"
+#define PQC_BROKER_HOST            "localhost"
+#define PQC_BROKER_PORT_PQC        8883
+#define PQC_BROKER_PORT_RSA        8884
+#define PQC_BROKER_PORT_ECDSA      8885
+#define PQC_BROKER_URI_PQC         "ssl://localhost:8883"
+#define PQC_BROKER_URI_RSA         "ssl://localhost:8884"
+#define PQC_BROKER_URI_ECDSA       "ssl://localhost:8885"
 
 /* --- MQTT defaults --- */
 #define PQC_MQTT_QOS_0         0

@@ -68,8 +68,9 @@ const char *tls_config_get_broker_uri(tls_mode_t mode)
     case TLS_MODE_PQC:
         return PQC_BROKER_URI_PQC;
     case TLS_MODE_RSA:
+        return PQC_BROKER_URI_RSA;
     case TLS_MODE_ECDSA:
-        return PQC_BROKER_URI_CLASSICAL;
+        return PQC_BROKER_URI_ECDSA;
     default:
         return PQC_BROKER_URI_PQC;
     }

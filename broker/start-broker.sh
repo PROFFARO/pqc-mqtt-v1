@@ -15,14 +15,18 @@ PID_FILE="/tmp/mosquitto-${MODE}.pid"
 case "${MODE}" in
     pqc)
         CONF="${SCRIPT_DIR}/mosquitto-pqc.conf"
-        echo "[broker] Starting Mosquitto in PQC-TLS mode ..."
+        echo "[broker] Starting Mosquitto in PQC-TLS mode (port 8883) ..."
         ;;
-    classical)
+    classical|rsa)
         CONF="${SCRIPT_DIR}/mosquitto-classical.conf"
-        echo "[broker] Starting Mosquitto in Classical-TLS mode ..."
+        echo "[broker] Starting Mosquitto in RSA-TLS mode (port 8884) ..."
+        ;;
+    ecdsa)
+        CONF="${SCRIPT_DIR}/mosquitto-ecdsa.conf"
+        echo "[broker] Starting Mosquitto in ECDSA-TLS mode (port 8885) ..."
         ;;
     *)
-        echo "Usage: $0 [pqc|classical]"
+        echo "Usage: $0 [pqc|rsa|classical|ecdsa]"
         exit 1
         ;;
 esac
