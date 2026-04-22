@@ -33,7 +33,6 @@ apt-get update && apt-get install -y \
     wireshark-common \
     sysstat \
     jq \
-    cJSON \
     libcjson-dev \
     uuid-dev
 

@@ -30,8 +30,9 @@ eval/results/raw/
 eval/results/figures/
 eval/results/tables/
 
-# --- Third-party sources (cloned during build) ---
+# --- Third-party sources and compiled outputs (cloned/built during build) ---
 toolchain/_vendor/
+toolchain/_install/
 
 # --- Packet captures ---
 *.pcap
