@@ -1,0 +1,72 @@
+# ============================================================================
+# openssl-pqc.cnf — OpenSSL configuration with OQS provider enabled
+# Used for generating ML-DSA certificates and ML-KEM key exchange
+# ============================================================================
+
+openssl_conf = openssl_init
+
+[openssl_init]
+providers = provider_sect
+ssl_conf   = ssl_sect
+
+# --- Provider Configuration ---
+[provider_sect]
+default = default_sect
+oqsprovider = oqsprovider_sect
+
+[default_sect]
+activate = 1
+
+[oqsprovider_sect]
+# The oqs-provider .so is installed into the ossl-modules dir by build-oqs-provider.sh
+activate = 1
+
+# --- SSL/TLS Defaults ---
+[ssl_sect]
+system_default = system_default_sect
+
+[system_default_sect]
+MinProtocol = TLSv1.3
+Groups       = mlkem768:x25519
+
+# --- Certificate Request Defaults ---
+[req]
+default_bits       = 2048
+default_md         = default
+distinguished_name = req_distinguished_name
+prompt             = no
+x509_extensions    = v3_ca
+
+[req_distinguished_name]
+C  = IN
+ST = Research
+L  = PQC-Lab
+O  = PQC-MQTT-Research
+OU = Quantum-Safe-Division
+CN = PQC-MQTT Root CA
+
+[v3_ca]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints       = critical, CA:TRUE
+keyUsage               = critical, digitalSignature, cRLSign, keyCertSign
+
+[v3_broker]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = CA:FALSE
+keyUsage               = critical, digitalSignature, keyEncipherment
+extendedKeyUsage       = serverAuth
+subjectAltName         = @broker_alt_names
+
+[v3_client]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = CA:FALSE
+keyUsage               = critical, digitalSignature
+extendedKeyUsage       = clientAuth
+
+[broker_alt_names]
+DNS.1 = localhost
+DNS.2 = pqc-broker
+IP.1  = 127.0.0.1

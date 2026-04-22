@@ -1,0 +1,153 @@
+% ============================================================================
+% references.bib — BibTeX entries for the 15 research papers
+% ============================================================================
+
+% --- NIST Standards ---
+
+@techreport{nist_fips203_2024,
+  title   = {{FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard}},
+  author  = {{National Institute of Standards and Technology}},
+  year    = {2024},
+  institution = {NIST},
+  doi     = {10.6028/NIST.FIPS.203},
+  url     = {https://doi.org/10.6028/NIST.FIPS.203},
+  note    = {ML-KEM (CRYSTALS-Kyber) standardization}
+}
+
+@techreport{nist_fips204_2024,
+  title   = {{FIPS 204: Module-Lattice-Based Digital Signature Standard}},
+  author  = {{National Institute of Standards and Technology}},
+  year    = {2024},
+  institution = {NIST},
+  doi     = {10.6028/NIST.FIPS.204},
+  url     = {https://doi.org/10.6028/NIST.FIPS.204},
+  note    = {ML-DSA (CRYSTALS-Dilithium) standardization}
+}
+
+@techreport{nist_fips205_2024,
+  title   = {{FIPS 205: Stateless Hash-Based Digital Signature Standard}},
+  author  = {{National Institute of Standards and Technology}},
+  year    = {2024},
+  institution = {NIST},
+  doi     = {10.6028/NIST.FIPS.205},
+  url     = {https://doi.org/10.6028/NIST.FIPS.205},
+  note    = {SLH-DSA (SPHINCS+) standardization}
+}
+
+% --- Foundational Algorithm Papers ---
+
+@misc{kyber_2017,
+  title   = {{CRYSTALS -- Kyber: a CCA-secure module-lattice-based KEM}},
+  author  = {Bos, Joppe and Ducas, L{\'e}o and Kiltz, Eike and Lepoint, Tancr{\`e}de and Lyubashevsky, Vadim and Schanck, John M. and Schwabe, Peter and Seiler, Gregor and Stehl{\'e}, Damien},
+  year    = {2018},
+  eprint  = {2017/634},
+  archiveprefix = {IACR},
+  url     = {https://eprint.iacr.org/2017/634.pdf}
+}
+
+@misc{dilithium_2017,
+  title   = {{CRYSTALS -- Dilithium: A Lattice-Based Digital Signature Scheme}},
+  author  = {Ducas, L{\'e}o and Kiltz, Eike and Lepoint, Tancr{\`e}de and Lyubashevsky, Vadim and Schwabe, Peter and Seiler, Gregor and Stehl{\'e}, Damien},
+  year    = {2018},
+  eprint  = {2017/633},
+  archiveprefix = {IACR},
+  url     = {https://eprint.iacr.org/2017/633.pdf}
+}
+
+% --- IoT & PQC Surveys ---
+
+@article{pqc_iot_survey_2024,
+  title   = {{Post-Quantum Cryptography for Internet of Things: A Survey on Performance and Optimization}},
+  author  = {Various Authors},
+  year    = {2024},
+  journal = {arXiv preprint},
+  url     = {https://arxiv.org/abs/2404.01549}
+}
+
+@article{constrained_device_bench_2024,
+  title   = {{Constrained Device Performance Benchmarking with the Implementation of Post-Quantum Cryptography}},
+  author  = {Various Authors},
+  year    = {2024},
+  journal = {MDPI Cryptography},
+  volume  = {8},
+  number  = {3},
+  pages   = {31},
+  url     = {https://www.mdpi.com/2410-387X/8/3/31}
+}
+
+@article{resilience_pqc_iot_2025,
+  title   = {{Resilience of Post-Quantum Cryptography in Lightweight IoT Protocols: A Systematic Review}},
+  author  = {Various Authors},
+  year    = {2025},
+  journal = {MDPI Electronics},
+  volume  = {14},
+  number  = {3},
+  pages   = {520},
+  url     = {https://www.mdpi.com/2079-9292/14/3/520}
+}
+
+% --- TLS Performance ---
+
+@inproceedings{pqtls_performance_2023,
+  title     = {{The Performance of Post-Quantum TLS 1.3}},
+  author    = {Sosnowski, Markus and others},
+  booktitle = {CoNEXT Companion '23},
+  year      = {2023},
+  doi       = {10.1145/3624354.3630090},
+  url       = {https://doi.org/10.1145/3624354.3630090}
+}
+
+@inproceedings{measuring_tls_pqkem_2019,
+  title     = {{Measuring TLS Key Exchange with Post-Quantum KEM}},
+  author    = {Kwiatkowski, Krzysztof and Sullivan, Nick and Langley, Adam and Levin, Dave and Mislove, Alan},
+  booktitle = {NIST Second PQC Standardization Conference},
+  year      = {2019},
+  url       = {https://csrc.nist.gov/CSRC/media/Events/second-pqc-standardization-conference/documents/accepted-papers/kwiatkowski-measuring-tls.pdf}
+}
+
+@misc{pqtls_no_signatures_2020,
+  title   = {{Post-Quantum TLS without Handshake Signatures}},
+  author  = {Schwabe, Peter and Stebila, Douglas and Wiggers, Thom},
+  year    = {2020},
+  eprint  = {2020/534},
+  archiveprefix = {IACR},
+  url     = {https://eprint.iacr.org/2020/534.pdf}
+}
+
+% --- MQTT Security ---
+
+@article{mqtt_security_2023,
+  title   = {{A Comprehensive Study of MQTT Security}},
+  author  = {Harsha, M.S. and others},
+  year    = {2023},
+  journal = {IEEE Access},
+  doi     = {10.1109/ACCESS.2023.3272960},
+  url     = {https://doi.org/10.1109/ACCESS.2023.3272960}
+}
+
+@misc{iot_tls13_performance_2020,
+  title   = {{Securing IoT Communications with TLS 1.3: A Performance Study}},
+  author  = {Restuccia, Francesco and others},
+  year    = {2020},
+  journal = {arXiv preprint},
+  url     = {https://arxiv.org/abs/2007.14893}
+}
+
+% --- NIST Standardization Process ---
+
+@techreport{nist_ir8413_2022,
+  title   = {{Status Report on the Third Round of the NIST Post-Quantum Cryptography Standardization Process}},
+  author  = {{National Institute of Standards and Technology}},
+  year    = {2022},
+  number  = {NIST IR 8413-upd1},
+  doi     = {10.6028/NIST.IR.8413-upd1},
+  url     = {https://doi.org/10.6028/NIST.IR.8413-upd1}
+}
+
+@misc{pqc_transition_review_2024,
+  title   = {{Transitioning to Post-Quantum Cryptography: A Systematic Review}},
+  author  = {Barker, William and others},
+  year    = {2024},
+  journal = {arXiv preprint},
+  url     = {https://arxiv.org/abs/2311.08757}
+}

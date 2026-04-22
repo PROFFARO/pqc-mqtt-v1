@@ -1,0 +1,45 @@
+# ============================================================================
+# openssl-classical.cnf — OpenSSL configuration for classical (baseline) certs
+# Used to generate RSA/ECDSA certificates for comparison benchmarks
+# ============================================================================
+
+[req]
+default_bits       = 2048
+default_md         = sha256
+distinguished_name = req_distinguished_name
+prompt             = no
+x509_extensions    = v3_ca
+
+[req_distinguished_name]
+C  = IN
+ST = Research
+L  = PQC-Lab
+O  = PQC-MQTT-Research
+OU = Classical-Baseline
+CN = Classical Root CA
+
+[v3_ca]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints       = critical, CA:TRUE
+keyUsage               = critical, digitalSignature, cRLSign, keyCertSign
+
+[v3_broker]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = CA:FALSE
+keyUsage               = critical, digitalSignature, keyEncipherment
+extendedKeyUsage       = serverAuth
+subjectAltName         = @broker_alt_names
+
+[v3_client]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = CA:FALSE
+keyUsage               = critical, digitalSignature
+extendedKeyUsage       = clientAuth
+
+[broker_alt_names]
+DNS.1 = localhost
+DNS.2 = classical-broker
+IP.1  = 127.0.0.1
