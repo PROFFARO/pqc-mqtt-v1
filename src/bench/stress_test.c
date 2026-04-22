@@ -80,7 +80,17 @@ int main(int argc, char *argv[])
 
     int mode_set = 0;
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--mode") == 0 && i + 1 < argc) {
+        if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
+            printf("Usage: %s --mode <pqc|rsa|ecdsa> [options]\n", argv[0]);
+            printf("Options:\n");
+            printf("  --mode <mode>      TLS mode (pqc, rsa, ecdsa)\n");
+            printf("  --clients <N>      Number of concurrent clients\n");
+            printf("  --output <file>    CSV output file path\n");
+            printf("  --ca <file>        CA certificate path\n");
+            printf("  --cert <file>      Client certificate path\n");
+            printf("  --key <file>       Client private key path\n");
+            exit(0);
+        } else if (strcmp(argv[i], "--mode") == 0 && i + 1 < argc) {
             if (tls_config_parse_mode(argv[++i], &mode) != 0) return 1;
             mode_set = 1;
         } else if (strcmp(argv[i], "--clients") == 0 && i + 1 < argc) {

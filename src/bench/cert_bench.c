@@ -44,8 +44,14 @@ int main(int argc, char *argv[])
     const char *output_file = "eval/results/raw/cert_sizes.csv";
 
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--output") == 0 && i + 1 < argc)
+        if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
+            printf("Usage: %s [options]\n", argv[0]);
+            printf("Options:\n");
+            printf("  --output <file>    CSV output file path\n");
+            exit(0);
+        } else if (strcmp(argv[i], "--output") == 0 && i + 1 < argc) {
             output_file = argv[++i];
+        }
     }
 
     cert_set_t sets[] = {
