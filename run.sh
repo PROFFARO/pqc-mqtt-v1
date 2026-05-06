@@ -14,6 +14,7 @@ source "${SCRIPT_DIR}/toolchain/env.sh"
 
 # --- Critical: Force our custom OpenSSL over system OpenSSL ---
 export LD_LIBRARY_PATH="${PQC_INSTALL_PREFIX}/lib64:${PQC_INSTALL_PREFIX}/lib:${LD_LIBRARY_PATH:-}"
+export LD_PRELOAD="${PQC_INSTALL_PREFIX}/lib64/libssl.so.3:${PQC_INSTALL_PREFIX}/lib64/libcrypto.so.3"
 
 # --- PQC provider configuration ---
 export OPENSSL_MODULES="${PQC_INSTALL_PREFIX}/lib64/ossl-modules"
@@ -21,6 +22,8 @@ export OPENSSL_CONF="${PQC_PROJECT_ROOT}/pki/openssl-pqc.cnf"
 
 # --- Enable TLS 1.3 Decryption for Wireshark ---
 export SSLKEYLOGFILE="${PQC_PROJECT_ROOT}/tls_keys.log"
+export SSL_KEYLOG_FILE="${PQC_PROJECT_ROOT}/tls_keys.log"
+touch "${PQC_PROJECT_ROOT}/tls_keys.log"
 
 # --- Verify provider loads (quick check) ---
 if ! "${PQC_INSTALL_PREFIX}/bin/openssl" list -providers 2>/dev/null | grep -q oqsprovider; then
