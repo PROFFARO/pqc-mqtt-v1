@@ -19,6 +19,9 @@ export LD_LIBRARY_PATH="${PQC_INSTALL_PREFIX}/lib64:${PQC_INSTALL_PREFIX}/lib:${
 export OPENSSL_MODULES="${PQC_INSTALL_PREFIX}/lib64/ossl-modules"
 export OPENSSL_CONF="${PQC_PROJECT_ROOT}/pki/openssl-pqc.cnf"
 
+# --- Enable TLS 1.3 Decryption for Wireshark ---
+export SSLKEYLOGFILE="${PQC_PROJECT_ROOT}/tls_keys.log"
+
 # --- Verify provider loads (quick check) ---
 if ! "${PQC_INSTALL_PREFIX}/bin/openssl" list -providers 2>/dev/null | grep -q oqsprovider; then
     echo "[run] WARNING: oqs-provider not detected. PQC mode may fail."
